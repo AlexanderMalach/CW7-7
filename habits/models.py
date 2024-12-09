@@ -3,9 +3,10 @@ from datetime import timedelta
 from django.core.validators import MaxValueValidator
 from django.db import models
 
+from config.settings import NULLABLE
 from users.models import User
 
-NULLABLE = {"null": True, "blank": True}
+
 
 
 class Habit(models.Model):
