@@ -54,6 +54,9 @@ class HabitsViewSet(viewsets.ModelViewSet):
     serializer_class = HabitSerializer
     queryset = Habit.objects.all()
 
+    def get_queryset(self):
+        return Habit.objects.filter(owner=self.request.user.id)
+
     def perform_create(self, serializer):
         """
         Добавление владельца к Habit при создании и определенье поля send_indicator

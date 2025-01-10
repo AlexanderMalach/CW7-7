@@ -3,10 +3,8 @@ from datetime import timedelta
 from django.core.validators import MaxValueValidator
 from django.db import models
 
+from config import settings
 from config.settings import NULLABLE
-from users.models import User
-
-
 
 
 class Habit(models.Model):
@@ -56,7 +54,7 @@ class Habit(models.Model):
         verbose_name="Статус опубликования привычки",
     )
     owner = models.ForeignKey(
-        User,
+        settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
         verbose_name="Создатель привычки",
         related_name="users_habits",
