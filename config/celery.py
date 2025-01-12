@@ -16,6 +16,10 @@ app.conf.beat_schedule = {
         "task": "users.tasks.deactivate_inactive_users",
         "schedule": crontab(hour=0, minute=0),  # Каждый день в полночь
     },
+    "send_message_to_user": {
+        "task": "habits.tasks.send_message_to_user",
+        "schedule": crontab(hour=0, minute=0),  # Каждый день в полночь
+    }
 }
 
 
