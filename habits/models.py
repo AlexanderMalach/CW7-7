@@ -63,6 +63,11 @@ class Habit(models.Model):
     send_indicator = models.PositiveSmallIntegerField(
         editable=False, verbose_name="Индикатор отправки", **NULLABLE
     )
+    next_reminder_date = models.DateField(
+        null=True,
+        blank=True,
+        verbose_name="Дата следующего напоминания"
+    )
 
     class Meta:
         verbose_name = "Привычка"
